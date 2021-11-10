@@ -15,13 +15,15 @@ const Dashboard = () => {
       setCoins(orderedCoins)
     }
     fetchData()
-  }, [coins])
+  }, [])
 
   const renderCoin = coin => (
     <Tr>
       <Td>{coin.pair_name}</Td>
       <Td isNumeric>{coin.bid}</Td>
+      <Td>{coin.fee}%</Td>
       <Td>{coin.exchange}</Td>
+      <Td>{coin.bid * 10 - (coin.bid * 10 * coin.fee) / 100}</Td>
     </Tr>
   )
 
@@ -33,7 +35,9 @@ const Dashboard = () => {
           <Tr>
             <Th>Nombre par</Th>
             <Th isNumeric>Precio venta</Th>
+            <Th>Impuesto por venta</Th>
             <Th>Exchange</Th>
+            <Th>Si vendo 10 de crypto recibo</Th>
           </Tr>
         </Thead>
         <Tbody>{coins.map(coin => renderCoin(coin))}</Tbody>
@@ -41,7 +45,9 @@ const Dashboard = () => {
           <Tr>
             <Th>Nombre par</Th>
             <Th isNumeric>Precio venta</Th>
+            <Th>Impuesto por venta</Th>
             <Th>Exchange</Th>
+            <Th>Si vendo 10 de crypto recibo</Th>
           </Tr>
         </Tfoot>
       </Table>

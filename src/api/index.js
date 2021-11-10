@@ -17,18 +17,20 @@ export const getArsCoinsPairs = async () => {
   const { data: satoshiTangoUsdcArsPair } = await getSatoshiTangoUsdcArsPair()
 
   const coins = [
-    { ...ripioUsdcArsPair, pair_name: Pairs.USDC_ARS, exchange: Exchanges.RIPIO },
-    { ...ripioDaiArsPair, pair_name: Pairs.DAI_ARS, exchange: Exchanges.RIPIO },
-    { ...buenBitDaiArsPair, pair_name: Pairs.DAI_ARS, exchange: Exchanges.BUENBIT },
+    { ...ripioUsdcArsPair, pair_name: Pairs.USDC_ARS, exchange: Exchanges.RIPIO, fee: 1 },
+    { ...ripioDaiArsPair, pair_name: Pairs.DAI_ARS, exchange: Exchanges.RIPIO, fee: 1 },
+    { ...buenBitDaiArsPair, pair_name: Pairs.DAI_ARS, exchange: Exchanges.BUENBIT, fee: 0 },
     {
       ...satoshiTangoDaiArsPair,
       pair_name: Pairs.DAI_ARS,
       exchange: Exchanges.SATOSHITANGO,
+      fee: 1,
     },
     {
       ...satoshiTangoUsdcArsPair,
       pair_name: Pairs.USDC_ARS,
       exchange: Exchanges.SATOSHITANGO,
+      fee: 1,
     },
   ]
   return coins
