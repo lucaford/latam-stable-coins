@@ -26,7 +26,7 @@ const Dashboard = () => {
   }, [])
 
   const renderCoin = coin => {
-    const totalAmount = coin.bid * 10 - (coin.bid * 10 * coin.fee) / 100
+    const totalAmount = coin.bid - (coin.bid * coin.fee) / 100
     return (
       <Tr>
         <Td>{coin.coin_name}</Td>
@@ -61,7 +61,7 @@ const Dashboard = () => {
                 <Th isNumeric>Precio venta</Th>
                 <Th>Impuesto por venta</Th>
                 <Th>Exchange</Th>
-                <Th>Si vendo 10 cripto es equivalente en pesos a</Th>
+                <Th>Si vendo 1 cripto es equivalente en pesos a</Th>
               </Tr>
             </Thead>
             <Tbody>{coins.map(coin => renderCoin(coin))}</Tbody>
@@ -71,7 +71,7 @@ const Dashboard = () => {
                 <Th isNumeric>Precio venta</Th>
                 <Th>Impuesto por venta</Th>
                 <Th>Exchange</Th>
-                <Th>Si vendo 10 cripto es equivalente en pesos a</Th>
+                <Th>Si vendo 1 cripto es equivalente en pesos a</Th>
               </Tr>
             </Tfoot>
           </Table>
