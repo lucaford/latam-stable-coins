@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption } from '@chakra-ui/react'
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner } from '@chakra-ui/react'
 
 import { getArsCoinsPairs, getArsDollarBlue } from '../../api'
 import { sortCoinsBySellValue } from '../../helpers/coinSort'
@@ -7,10 +7,12 @@ import './styles.css'
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([])
+  const [loading, setLoading] = useState(false)
   const [dollarBluePrice, setDollarBluePrice] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       const arsCoinsPairs = await getArsCoinsPairs()
       const orderedCoins = sortCoinsBySellValue(arsCoinsPairs)
       const {
@@ -18,6 +20,7 @@ const Dashboard = () => {
       } = await getArsDollarBlue()
       setCoins(orderedCoins)
       setDollarBluePrice(dollarBlue)
+      setLoading(false)
     }
     fetchData()
   }, [])
@@ -32,6 +35,14 @@ const Dashboard = () => {
         <Td>{coin.exchange}</Td>
         <Td>{(Math.round(totalAmount * 100) / 100).toFixed(2)}</Td>
       </Tr>
+    )
+  }
+
+  if (loading) {
+    return (
+      <div class="loader">
+        <Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" color="blue.500" size="xl" />
+      </div>
     )
   }
 

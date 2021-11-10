@@ -8,3 +8,8 @@
   color: aquamarine;
   font-weight: bold;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+}
