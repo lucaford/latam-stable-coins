@@ -28,29 +28,33 @@ const Dashboard = () => {
   )
 
   return (
-    <div class="container">
-      <Table variant="simple">
-        <TableCaption>Stable coins a PESO ARS</TableCaption>
-        <Thead>
-          <Tr>
-            <Th>Nombre par</Th>
-            <Th isNumeric>Precio venta</Th>
-            <Th>Impuesto por venta</Th>
-            <Th>Exchange</Th>
-            <Th>Si vendo 10 de crypto recibo</Th>
-          </Tr>
-        </Thead>
-        <Tbody>{coins.map(coin => renderCoin(coin))}</Tbody>
-        <Tfoot>
-          <Tr>
-            <Th>Nombre par</Th>
-            <Th isNumeric>Precio venta</Th>
-            <Th>Impuesto por venta</Th>
-            <Th>Exchange</Th>
-            <Th>Si vendo 10 de crypto recibo</Th>
-          </Tr>
-        </Tfoot>
-      </Table>
+    <div class="default-view">
+      <div class="default-view-child">
+        <div class="default-view-content">
+          <Table variant="simple" class="table">
+            <TableCaption>Stable coins a PESO ARS</TableCaption>
+            <Thead>
+              <Tr>
+                <Th>Nombre par</Th>
+                <Th isNumeric>Precio venta</Th>
+                <Th>Impuesto por venta</Th>
+                <Th>Exchange</Th>
+                <Th>Si vendo 10 de crypto recibo</Th>
+              </Tr>
+            </Thead>
+            <Tbody>{coins.map(coin => renderCoin(coin))}</Tbody>
+            <Tfoot>
+              <Tr>
+                <Th>Nombre par</Th>
+                <Th isNumeric>Precio venta</Th>
+                <Th>Impuesto por venta</Th>
+                <Th>Exchange</Th>
+                <Th>Si vendo 10 de crypto recibo</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </div>
+      </div>
     </div>
   )
 }
