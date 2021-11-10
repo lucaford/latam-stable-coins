@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption } from '@chakra-ui/react'
 
-import { getArsCoinsPairs } from '../../api'
+import { getArsCoinsPairs, getArsDollarBlue } from '../../api'
 import { sortCoinsBySellValue } from '../../helpers/coinSort'
 import './styles.css'
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([])
+  const [dollarBluePrice, setDollarBluePrice] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
       const arsCoinsPairs = await getArsCoinsPairs()
       const orderedCoins = sortCoinsBySellValue(arsCoinsPairs)
+      const {
+        data: { blue: dollarBlue },
+      } = await getArsDollarBlue()
       setCoins(orderedCoins)
+      setDollarBluePrice(dollarBlue)
     }
     fetchData()
   }, [])
@@ -34,6 +39,9 @@ const Dashboard = () => {
     <div class="default-view">
       <div class="default-view-child">
         <div class="default-view-content">
+          <div class="dollarBlueContainer">
+            <p class="dollarBlueText">DOLAR ${dollarBluePrice}</p>
+          </div>
           <Table variant="simple" class="table">
             <TableCaption>Stable coins a PESO ARS</TableCaption>
             <Thead>

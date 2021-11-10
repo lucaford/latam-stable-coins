@@ -1,3 +1,10 @@
-.container {
+.dollarBlueContainer {
   display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.dollarBlueText {
+  color: aquamarine;
+  font-weight: bold;
 }

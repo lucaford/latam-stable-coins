@@ -3,6 +3,7 @@
 import { getRipioUsdcArsPair, getRipioDaiArsPair } from './ripio'
 import { getBuenBitDaiArsPair } from './buenbit'
 import { getSatoshiTangoDaiArsPair, getSatoshiTangoUsdcArsPair } from './satoshitango'
+import { getArsDollarBlue } from './dollar'
 
 import Exchanges from '../enum/Exchanges'
 import Pairs from '../enum/Pairs'
@@ -38,3 +39,5 @@ export const getArsCoinsPairs = async () => {
   ]
   return coins
 }
+
+export { getArsDollarBlue }

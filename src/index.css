@@ -15,11 +15,11 @@ code {
 }
 
 .default-view {
-  padding: 98px 32px 0 98px;
+  padding: 30px 32px 0 98px;
   width: 100%;
 
   @media (min-width: 1152px) {
-    padding: 98px 0 0 230px;
+    padding: 30px 0 0 230px;
   }
 }
 
