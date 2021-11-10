@@ -17,15 +17,18 @@ const Dashboard = () => {
     fetchData()
   }, [])
 
-  const renderCoin = coin => (
-    <Tr>
-      <Td>{coin.pair_name}</Td>
-      <Td isNumeric>{coin.bid}</Td>
-      <Td>{coin.fee}%</Td>
-      <Td>{coin.exchange}</Td>
-      <Td>{coin.bid * 10 - (coin.bid * 10 * coin.fee) / 100}</Td>
-    </Tr>
-  )
+  const renderCoin = coin => {
+    const totalAmount = coin.bid * 10 - (coin.bid * 10 * coin.fee) / 100
+    return (
+      <Tr>
+        <Td>{coin.coin_name}</Td>
+        <Td isNumeric>{coin.bid}</Td>
+        <Td>{coin.fee}%</Td>
+        <Td>{coin.exchange}</Td>
+        <Td>{(Math.round(totalAmount * 100) / 100).toFixed(2)}</Td>
+      </Tr>
+    )
+  }
 
   return (
     <div class="default-view">
@@ -35,21 +38,21 @@ const Dashboard = () => {
             <TableCaption>Stable coins a PESO ARS</TableCaption>
             <Thead>
               <Tr>
-                <Th>Nombre par</Th>
+                <Th>Criptomoneda</Th>
                 <Th isNumeric>Precio venta</Th>
                 <Th>Impuesto por venta</Th>
                 <Th>Exchange</Th>
-                <Th>Si vendo 10 de crypto recibo</Th>
+                <Th>Si vendo 10 cripto es equivalente en pesos a</Th>
               </Tr>
             </Thead>
             <Tbody>{coins.map(coin => renderCoin(coin))}</Tbody>
             <Tfoot>
               <Tr>
-                <Th>Nombre par</Th>
+                <Th>Criptomoneda</Th>
                 <Th isNumeric>Precio venta</Th>
                 <Th>Impuesto por venta</Th>
                 <Th>Exchange</Th>
-                <Th>Si vendo 10 de crypto recibo</Th>
+                <Th>Si vendo 10 cripto es equivalente en pesos a</Th>
               </Tr>
             </Tfoot>
           </Table>
