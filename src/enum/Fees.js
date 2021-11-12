@@ -1,0 +1,12 @@
+const USD_FEES = Object.freeze({
+  WIZE_TO_WIZE: 0,
+  BINANCE_USDT_TO_USDC: 0.03,
+  BINANCE_USDT_P2P_PRICE: 1.016,
+  BINANCE_WITHDRAW_ERC20: 25,
+})
+
+const PERCENT_FEES = Object.freeze({
+  RIPIO_USDC_TO_PESO: 1,
+})
+
+export { USD_FEES, PERCENT_FEES }

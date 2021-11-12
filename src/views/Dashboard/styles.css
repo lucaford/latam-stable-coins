@@ -13,3 +13,37 @@
   display: flex;
   justify-content: center;
 }
+
+.convertion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+.usdInput {
+  width: 140px;
+}
+
+.finalUsd {
+  color: aquamarine;
+  font-weight: bold;
+}
+
+.feeContainer {
+  position: relative;
+}
+
+.exchangeLogo {
+  width: 50px;
+}
+
+.feeNumber {
+  color: chocolate;
+  font-weight: bold;
+  position: absolute;
+  font-size: 13px;
+  top: -20px;
+  left: -10px;
+}
