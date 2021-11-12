@@ -31,7 +31,7 @@ const Dashboard = () => {
       const {
         data: { blue: dollarBlue },
       } = await getArsDollarBlue()
-      coins.forEach(coin => {
+      orderedCoins.forEach(coin => {
         if (coin.coin_name === Crypto.USDC && coin.exchange === Exchanges.RIPIO) {
           setRipioBid(coin.bid)
         }
